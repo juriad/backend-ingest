@@ -13,6 +13,16 @@ function toInflux()
     $temp3_c = (float)$_GET['temp3'];
     $light1_lux = (int)$_GET['light1'];
 
+    if ($temp1_c <= -127) {
+        $temp1_c = null;
+    }
+    if ($temp2_c <= -127) {
+        $temp2_c = null;
+    }
+    if ($temp3_c <= -127) {
+        $temp3_c = null;
+    }
+
     $content = [
         'took_ms' => $took_ms,
         'boot_cnt' => $boot_cnt,
