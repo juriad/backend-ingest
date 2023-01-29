@@ -11,7 +11,7 @@ function toInflux()
     $temp1_c = (float)$_GET['temp1'];
     $temp2_c = (float)$_GET['temp2'];
     $temp3_c = (float)$_GET['temp3'];
-    $light1_lux = (int)$_GET['light1'];
+    $light1_lux = (float)$_GET['light1'];
 
     if ($temp1_c <= -127) {
         $temp1_c = null;
