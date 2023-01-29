@@ -5,6 +5,7 @@ file_put_contents('update', json_encode([$_GET]));
 
 function toInflux()
 {
+    $took_ms = (int)$_GET['took'];
     $boot_cnt = (int)$_GET['boot'];
     $rssi_dbm = (int)$_GET['rssi'];
     $temp1_c = (float)$_GET['temp1'];
@@ -13,6 +14,7 @@ function toInflux()
     $light1_lux = (int)$_GET['light1'];
 
     $content = [
+        'took_ms' => $took_ms,
         'boot_cnt' => $boot_cnt,
         'rssi_dbm' => $rssi_dbm,
         'temp1_c' => $temp1_c,
