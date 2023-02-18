@@ -12,16 +12,18 @@ function toInflux($data)
     $row["wifi_took_ms"] = $data->wifi->took;
 
     foreach ($data->temp as $i => $temp) {
+        $n = $i + 1;
         if ($temp) {
-            $row["temp${i}_c"] = $temp->value;
-            $row["temp${i}_took_ms"] = $temp->took;
+            $row["temp${n}_c"] = $temp->value;
+            $row["temp${n}_took_ms"] = $temp->took;
         }
     }
 
     foreach ($data->light as $i => $light) {
         if ($light) {
-            $row["light${i}_lux"] = $light->value;
-            $row["light${i}_took_ms"] = $light->took;
+            $n = $i + 1;
+            $row["light${n}_lux"] = $light->value;
+            $row["light${n}_took_ms"] = $light->took;
         }
     }
 
